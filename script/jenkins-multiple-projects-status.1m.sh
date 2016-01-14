@@ -1,6 +1,6 @@
 #!/bin/bash
-BASE_URL="jenkins.xinpinget.com/"
-PROJECTS=("Saturn")
+BASE_URL="jenkins.example.com/"
+PROJECTS=("Project1")
 
 function displaytime {
   local T=$1/1000
