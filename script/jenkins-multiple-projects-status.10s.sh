@@ -32,20 +32,20 @@ function displaytime {
 
 for project in "${PROJECTS[@]}"
 do
-  output="${project}: "
-  url="http://${BASE_URL}/job/${project}/lastBuild/api/json?pretty=true"
-  query=$(curl --insecure --silent "${url}") # take only the end of output
+    output=""
+    url="http://${BASE_URL}/job/${project}/lastBuild/api/json?pretty=true"
+    query=$(curl --insecure --silent "${url}") # take only the end of output
 
-  success=$(echo "${query}" | grep "result" | awk '{print $3}') # grep the "result" line
-  if [[ $success == *"SUCCESS"* ]]
-  then
-    output+='🔵 '
-  elif [[ $success == *"ABORT"* ]] 
-  then
-    output+='🔴 '
-  else
-    output+='🎾'
-  fi
+    success=$(echo "${query}" | grep "result" | awk '{print $3}') # grep the "result" line
+    if [[ $success == *"SUCCESS"* ]]
+    then
+        output+='🔵 '
+    elif [[ $success == *"ABORT"* ]] 
+    then
+        output+='🔴 '
+    else
+        output+='🎾'
+    fi
 
-  echo "${output}"
+    echo "${output}"
 done
