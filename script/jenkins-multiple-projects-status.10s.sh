@@ -1,6 +1,12 @@
 #!/bin/bash
-BASE_URL="jenkins.example.com/"
-PROJECTS=("Project1")
+
+configFile=$(dirname $0)/../config.sh
+if [[ ! -e $configFile ]]; then
+    echo "Config file not exists"
+    exit -1
+else
+    source $configFile
+fi
 
 function displaytime {
   local T=$1/1000
@@ -34,13 +40,12 @@ do
   if [[ $success == *"SUCCESS"* ]]
   then
     output+='🔵 '
-  else
+  elif [[ $success == *"ABORT"* ]] 
+  then
     output+='🔴 '
+  else
+    output+='🎾'
   fi
 
-  timestamp=$(echo "${query}" | grep "timestamp" | awk '{print $3}') # grep the "timestamp" line
-  timestamp=${timestamp%?} # remove the trailing ','
-  currentTime=$(($(date +'%s * 1000 + %-N / 1000000'))) # generate a timestamp
-  output+=" $(displaytime $(( currentTime - timestamp )))"
   echo "${output}"
 done
