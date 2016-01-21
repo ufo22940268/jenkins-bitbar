@@ -2,7 +2,8 @@
 
 A [bitbar](https://github.com/matryer/bitbar#get-started) plugin to display jenkins status.
 
-![](./screenshot.png)
+![](http://ww4.sinaimg.cn/large/3f6e95acgw1f04xwyeuhcj20em01pmx7.jpg)
+![](http://ww1.sinaimg.cn/large/3f6e95acgw1f04xxdlw2zj20cc016weg.jpg)
 
 ## How to use
 
