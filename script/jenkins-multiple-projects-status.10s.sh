@@ -40,7 +40,7 @@ do
     if [[ $success == *"SUCCESS"* ]]
     then
         output+='🔵 '
-    elif [[ $success == *"ABORT"* ]] 
+    elif [[ $success == *"ABORT"* || $success == *"FAILURE"* ]] 
     then
         output+='🔴 '
     else
